@@ -1,0 +1,6 @@
+{
+    "/api": {
+        "target": "https://intothefuture.azurewebsites.net",
+        "secure": false
+    }
+}
