@@ -1,7 +1,7 @@
 export class ApiDataResponse{
     constructor(
-        public IsSuccess?: boolean,
-        public ErrorMsg?: string,
-        public ErrorMsgDetail?: string,
+        public isSuccess: boolean | null,
+        public errorMsg: string | null,
+        public errorMsgDetail: string | null,
     ){}
 }

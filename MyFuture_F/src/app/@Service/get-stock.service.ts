@@ -8,6 +8,6 @@ import { StockInfoModel } from '../@Model/stockInfoModel.model';
 export class GetStockService {
   constructor(private http: HttpClient) { }
   getJumpEmptyStocks(){
-    return this.http.get<StockInfoModel>("/api/GetStock/GetJumpEmptyStocks");
+    return this.http.get<StockInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks");
   }
 }

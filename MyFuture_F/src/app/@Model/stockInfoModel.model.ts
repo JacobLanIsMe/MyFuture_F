@@ -3,10 +3,15 @@ import { StockDetailModel } from "./stockDetailModel.model";
 
 export class StockInfoModel extends ApiDataResponse{
     constructor(
-        public Id: string,
-        public Name: string,
-        public StockDetails: StockDetailModel[]
+        public data: Data[] | null
     ){
-        super(undefined, undefined, undefined);
+        super(null, null, null);
     }
+}
+class Data{
+    constructor(
+        public id: string | null,
+        public name: string | null,
+        public stockDetails: StockDetailModel[] | null
+    ){}
 }
