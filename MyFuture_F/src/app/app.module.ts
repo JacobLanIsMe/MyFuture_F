@@ -7,6 +7,7 @@ import { IndexComponent } from './index/index.component';
 import { StrategyComponent } from './index/strategy/strategy.component';
 import { ResultComponent } from './index/result/result.component';
 import { HeaderComponent } from './index/header/header.component';
+import { DetailComponent } from './index/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HeaderComponent } from './index/header/header.component';
     IndexComponent,
     StrategyComponent,
     ResultComponent,
-    HeaderComponent
+    HeaderComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

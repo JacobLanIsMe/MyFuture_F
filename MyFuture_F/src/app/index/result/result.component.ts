@@ -17,9 +17,10 @@ export class ResultComponent implements OnInit {
   stockInfos: StockInfoModel | null = null;
   linkTo(id: string | null){
     if (id){
-      let url = `https://histock.tw/stock/tchart.aspx?no=${id}`;
-      window.open(url, "_blank");
-      window.focus();
+      this.getStockService.selectedStock.next(id);
+      // let url = `https://histock.tw/stock/tchart.aspx?no=${id}`;
+      // window.open(url, "_blank");
+      // window.focus();
     }
   }
 }
