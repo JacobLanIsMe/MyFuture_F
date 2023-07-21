@@ -1,6 +1,6 @@
 <ng-container *ngIf="stockInfos">
     <div class="row px-5">
-        <button *ngFor="let item of stockInfos.data" (click)="linkTo(item.id)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>
+        <button *ngFor="let item of stockInfos.data" (click)="linkTo(item.id)" class="btn btn-outline-secondary btn-sm col-1">{{item.id}}</button>
         <!-- <div *ngFor="let item of stockInfos.data" (click)="linkTo(item.id)" class="mx-2" style="cursor:pointer;">{{item.name}}</div> -->
     </div>
 </ng-container>
