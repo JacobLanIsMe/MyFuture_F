@@ -17,6 +17,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.selectedStockSubscription = this.getStockService.selectedStock.subscribe(res=>{
       let unSafeUrl = `https://histock.tw/stock/tchart.aspx?no=${res}`;
       this.selectedStockSrc = this.sanitizer.bypassSecurityTrustResourceUrl(unSafeUrl);
+      
     })
   }
   selectedStockSubscription!: Subscription;
