@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { GetStockService } from 'src/app/@Service/get-stock.service';
 
@@ -8,15 +9,16 @@ import { GetStockService } from 'src/app/@Service/get-stock.service';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit, OnDestroy {
-  constructor(private getStockService: GetStockService){}
+  constructor(private getStockService: GetStockService, private sanitizer: DomSanitizer){}
   ngOnDestroy(): void {
     this.selectedStockSubscription.unsubscribe();
   }
   ngOnInit(): void {
     this.selectedStockSubscription = this.getStockService.selectedStock.subscribe(res=>{
-      this.selectedStockSrc = `https://histock.tw/stock/tchart.aspx?no=${res}`;
+      let unSafeUrl = `https://histock.tw/stock/tchart.aspx?no=${res}`;
+      this.selectedStockSrc = this.sanitizer.bypassSecurityTrustResourceUrl(unSafeUrl);
     })
   }
   selectedStockSubscription!: Subscription;
-  selectedStockSrc: string | null = null; 
+  selectedStockSrc: SafeResourceUrl | null = null; 
 }
