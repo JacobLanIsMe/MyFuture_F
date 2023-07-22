@@ -9,9 +9,11 @@ import { Subject } from 'rxjs';
 export class GetStockService {
   constructor(private http: HttpClient) { }
   selectedStock = new Subject<string>();
-  selectedStrategy = new Subject<string>();
+  strategyMatchedStocks = new Subject<StockInfoModel>();
   getJumpEmptyStocks(){
     return this.http.get<StockInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks");
   }
-
+  getBullishPullbackStocks(){
+    return this.http.get<StockInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks")
+  }
 }

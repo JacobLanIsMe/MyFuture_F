@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { StockInfoModel } from 'src/app/@Model/stockInfoModel.model';
 import { GetStockService } from 'src/app/@Service/get-stock.service';
 
@@ -7,10 +8,16 @@ import { GetStockService } from 'src/app/@Service/get-stock.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit {
+export class ResultComponent implements OnInit, OnDestroy {
   constructor(private getStockService: GetStockService){}
+  ngOnDestroy(): void {
+    this.strategyMatchedStockSubscription.unsubscribe();
+  }
   ngOnInit(): void {
-    this.getStockService.getJumpEmptyStocks().subscribe(res=>{
+    this.strategyMatchedStockSubscription = this.getStockService.strategyMatchedStocks.subscribe(res=>{
+      this.stockInfos = res;
+    })
+    this.getStockService.getBullishPullbackStocks().subscribe(res=>{
       this.stockInfos = res;
     });
   }
@@ -18,9 +25,7 @@ export class ResultComponent implements OnInit {
   linkTo(id: string | null){
     if (id){
       this.getStockService.selectedStock.next(id);
-      // let url = `https://histock.tw/stock/tchart.aspx?no=${id}`;
-      // window.open(url, "_blank");
-      // window.focus();
     }
   }
+  strategyMatchedStockSubscription!: Subscription;
 }

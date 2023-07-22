@@ -1,4 +1,12 @@
 <div class="d-flex justify-content-center my-2">
-    <div class="fw-bold mx-2">多頭</div>
-    <div class="fw-bold mx-2">跳空</div>
+    <!-- <button class="btn btn-secondary btn-sm mx-2" (click)="getBullishPullbackStocks()">多頭</button>
+    <button class="btn btn-secondary btn-sm mx-2" (click)="getJumpEmptyStocks()">跳空</button> -->
+    <div class="mx-2">
+        <input type="radio" class="btn-check" name="strategy" id="option1" autocomplete="off" checked>
+        <label class="btn btn-outline-secondary" for="option1" (click)="getBullishPullbackStocks()">多頭</label>
+    </div>
+    <div class="mx-2">
+        <input type="radio" class="btn-check" name="strategy" id="option2" autocomplete="off">
+        <label class="btn btn-outline-secondary" for="option2" (click)="getJumpEmptyStocks()">跳空</label>
+    </div>
 </div>
