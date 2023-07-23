@@ -15,7 +15,8 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.selectedStockSubscription = this.getStockService.selectedStock.subscribe(res=>{
-      let unSafeUrl = `https://histock.tw/stock/tchart.aspx?no=${res}`;
+      // let unSafeUrl = `https://histock.tw/stock/tchart.aspx?no=${res}`;
+      let unSafeUrl = `https://www.cnyes.com/twstock/${res}/summary/full-technical`;
       this.selectedStockSrc = this.sanitizer.bypassSecurityTrustResourceUrl(unSafeUrl);
       
     })
