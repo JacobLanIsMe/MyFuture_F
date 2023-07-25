@@ -1,4 +1,4 @@
-export class StockDetailModel{
+export class StockTechDetailModel{
     constructor(
         public t: number,
         public o: number,

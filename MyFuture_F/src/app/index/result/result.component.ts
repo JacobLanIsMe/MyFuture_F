@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { StockInfoModel } from 'src/app/@Model/stockInfoModel.model';
+import { StockFinanceInfoModel } from 'src/app/@Model/stockFinanceInfoModel.model';
+import { StockTechInfoModel } from 'src/app/@Model/stockTechInfoModel.model';
 import { GetStockService } from 'src/app/@Service/get-stock.service';
 
 @Component({
@@ -11,21 +12,29 @@ import { GetStockService } from 'src/app/@Service/get-stock.service';
 export class ResultComponent implements OnInit, OnDestroy {
   constructor(private getStockService: GetStockService){}
   ngOnDestroy(): void {
-    this.strategyMatchedStockSubscription.unsubscribe();
+    this.techMatchedStockSubscription.unsubscribe();
+    this.financeMatchedStockSubscription.unsubscribe();
   }
   ngOnInit(): void {
-    this.strategyMatchedStockSubscription = this.getStockService.strategyMatchedStocks.subscribe(res=>{
-      this.stockInfos = res;
-    })
     this.getStockService.getBullishPullbackStocks().subscribe(res=>{
-      this.stockInfos = res;
+      this.techStocks = res;
     });
+    this.techMatchedStockSubscription = this.getStockService.techMatchedStocks.subscribe(res=>{
+      this.techStocks = res;
+      this.financeStocks = null;
+    })
+    this.financeMatchedStockSubscription = this.getStockService.financeMatchedStocks.subscribe(res=>{
+      this.financeStocks = res;
+      this.techStocks = null;
+    })
   }
-  stockInfos: StockInfoModel | null = null;
+  techStocks: StockTechInfoModel | null = null;
+  financeStocks: StockFinanceInfoModel | null = null;
   linkTo(id: string | null){
     if (id){
       this.getStockService.selectedStock.next(id);
     }
   }
-  strategyMatchedStockSubscription!: Subscription;
+  techMatchedStockSubscription!: Subscription;
+  financeMatchedStockSubscription!: Subscription;
 }

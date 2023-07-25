@@ -1,5 +1,10 @@
-<ng-container *ngIf="stockInfos">
+<ng-container *ngIf="techStocks && techStocks.data">
     <div class="row px-5">
-        <button *ngFor="let item of stockInfos.data" (click)="linkTo(item.id)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>
+        <button *ngFor="let item of techStocks.data" (click)="linkTo(item.id)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>
+    </div>
+</ng-container>
+<ng-container *ngIf="financeStocks && financeStocks.data">
+    <div class="row px-5">
+        <button *ngFor="let item of financeStocks.data" (click)="linkTo(item.id)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>
     </div>
 </ng-container>
