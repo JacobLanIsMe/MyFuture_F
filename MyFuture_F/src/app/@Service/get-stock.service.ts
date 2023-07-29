@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { StockTechInfoModel } from '../@Model/stockTechInfoModel.model';
 import { Subject } from 'rxjs';
 import { StockFinanceInfoModel } from '../@Model/stockFinanceInfoModel.model';
-import { StrategyEnum } from '../@Enum/StrategyEnum';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +19,6 @@ export class GetStockService {
     return this.http.get<StockTechInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks")
   }
   getEpsIncreasingStocks(){
-    return this.http.get<StockFinanceInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetEpsIncreasingStocks")
+    return this.http.get<StockFinanceInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetFinanceIncreasingStocks")
   }
 }
