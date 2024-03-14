@@ -1,11 +1,6 @@
-<ng-container *ngIf="techStocks && techStocks.data">
+<ng-container *ngIf="strategyMatchedStocks && strategyMatchedStocks.data">
     <div class="row px-5">
-        <button *ngFor="let item of techStocks.data" (click)="linkTo(item.id)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>
-    </div>
-</ng-container>
-<ng-container *ngIf="financeStocks && financeStocks.data">
-    <div class="row px-5">
-        <button *ngFor="let item of financeStocks.data" (click)="linkTo(item.id)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>
+        <button *ngFor="let item of strategyMatchedStocks.data" (click)="linkTo(item.stockId)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>
     </div>
 </ng-container>
 <div class="mb-3"></div>

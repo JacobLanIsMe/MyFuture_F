@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { StockTechInfoModel } from '../@Model/stockTechInfoModel.model';
 import { Subject } from 'rxjs';
 import { StockFinanceInfoModel } from '../@Model/stockFinanceInfoModel.model';
+import { StockBaseModel } from '../@Model/stockBaseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,17 @@ import { StockFinanceInfoModel } from '../@Model/stockFinanceInfoModel.model';
 export class GetStockService {
   constructor(private http: HttpClient) { }
   selectedStock = new Subject<string>();
-  techMatchedStocks = new Subject<StockTechInfoModel>();
-  financeMatchedStocks = new Subject<StockFinanceInfoModel>();
+  strategyMatchedStocks = new Subject<StockBaseModel>();
   getJumpEmptyStocks(){
-    return this.http.get<StockTechInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks");
+    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks");
   }
   getBullishPullbackStocks(){
-    return this.http.get<StockTechInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks")
+    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks")
   }
   getEpsIncreasingStocks(){
-    return this.http.get<StockFinanceInfoModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetFinanceIncreasingStocks")
+    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetFinanceIncreasingStocks")
+  }
+  getHighYieldStocks(){
+    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetHighYieldStocks");
   }
 }

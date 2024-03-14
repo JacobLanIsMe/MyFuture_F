@@ -11,17 +11,22 @@ export class StrategyComponent {
   constructor(private getStockService: GetStockService){}
   getBullishPullbackStocks(){
     this.getStockService.getBullishPullbackStocks().subscribe(res=>{
-      this.getStockService.techMatchedStocks.next(res);
+      this.getStockService.strategyMatchedStocks.next(res);
     })
   }
   getJumpEmptyStocks(){
     this.getStockService.getJumpEmptyStocks().subscribe(res=>{
-      this.getStockService.techMatchedStocks.next(res);
+      this.getStockService.strategyMatchedStocks.next(res);
     })
   }
   getEpsIncreasingStocks(){
     this.getStockService.getEpsIncreasingStocks().subscribe(res=>{
-      this.getStockService.financeMatchedStocks.next(res);
+      this.getStockService.strategyMatchedStocks.next(res);
+    })
+  }
+  getHighYieldStocks(){
+    this.getStockService.getHighYieldStocks().subscribe(res=>{
+      this.getStockService.strategyMatchedStocks.next(res);
     })
   }
 }
