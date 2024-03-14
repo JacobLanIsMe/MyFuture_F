@@ -9,6 +9,7 @@ import { ResultComponent } from './index/result/result.component';
 import { HeaderComponent } from './index/header/header.component';
 import { DetailComponent } from './index/detail/detail.component';
 import { LoadingSpinnerComponent } from './share/loading-spinner/loading-spinner.component';
+import { DisclaimerComponent } from './index/disclaimer/disclaimer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoadingSpinnerComponent } from './share/loading-spinner/loading-spinner
     ResultComponent,
     HeaderComponent,
     DetailComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    DisclaimerComponent
   ],
   imports: [
     BrowserModule,
