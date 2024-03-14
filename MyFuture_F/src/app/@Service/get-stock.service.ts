@@ -11,7 +11,8 @@ import { StockBaseModel } from '../@Model/stockBaseModel';
 export class GetStockService {
   constructor(private http: HttpClient) { }
   selectedStock = new Subject<string>();
-  strategyMatchedStocks = new Subject<StockBaseModel>();
+  strategyMatchedStocks = new Subject<StockBaseModel | null>();
+  isResultLoading = new Subject<boolean>();
   getJumpEmptyStocks(){
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks");
   }

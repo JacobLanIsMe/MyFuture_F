@@ -1,3 +1,4 @@
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
 <ng-container *ngIf="strategyMatchedStocks && strategyMatchedStocks.data">
     <div class="row px-5">
         <button *ngFor="let item of strategyMatchedStocks.data" (click)="linkTo(item.stockId)" class="btn btn-outline-secondary btn-sm col-1">{{item.name}}</button>

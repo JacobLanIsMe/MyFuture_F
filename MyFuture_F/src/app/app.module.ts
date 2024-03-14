@@ -8,6 +8,7 @@ import { StrategyComponent } from './index/strategy/strategy.component';
 import { ResultComponent } from './index/result/result.component';
 import { HeaderComponent } from './index/header/header.component';
 import { DetailComponent } from './index/detail/detail.component';
+import { LoadingSpinnerComponent } from './share/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DetailComponent } from './index/detail/detail.component';
     StrategyComponent,
     ResultComponent,
     HeaderComponent,
-    DetailComponent
+    DetailComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
