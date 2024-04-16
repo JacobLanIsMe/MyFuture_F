@@ -19,6 +19,9 @@ export class GetStockService {
   getBullishPullbackStocks(){
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks")
   }
+  getOrganizedStocks(){
+    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetOrganizedStocks")
+  }
   getEpsIncreasingStocks(){
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetFinanceIncreasingStocks")
   }

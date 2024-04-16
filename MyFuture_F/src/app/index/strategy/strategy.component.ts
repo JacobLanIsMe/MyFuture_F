@@ -22,6 +22,12 @@ export class StrategyComponent {
       this.statusAfterGetResult(res);
     })
   }
+  getOrganizedStocks(){
+    this.statusBeforeGetResult();
+    this.getStockService.getOrganizedStocks().subscribe(res=>{
+      this.statusAfterGetResult(res);
+    })
+  }
   getEpsIncreasingStocks(){
     this.statusBeforeGetResult();
     this.getStockService.getEpsIncreasingStocks().subscribe(res=>{
