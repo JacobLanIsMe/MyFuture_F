@@ -13,19 +13,22 @@ export class GetStockService {
   selectedStock = new Subject<string>();
   strategyMatchedStocks = new Subject<StockBaseModel | null>();
   isResultLoading = new Subject<boolean>();
-  getJumpEmptyStocks(){
+  getJumpEmptyStocks() {
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks");
   }
-  getBullishPullbackStocks(){
+  getBullishPullbackStocks() {
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks")
   }
-  getOrganizedStocks(){
+  getOrganizedStocks() {
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetOrganizedStocks")
   }
-  getEpsIncreasingStocks(){
+  getSandwichStocks() {
+    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetSandwichStocks")
+  }
+  getEpsIncreasingStocks() {
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetFinanceIncreasingStocks")
   }
-  getHighYieldStocks(){
+  getHighYieldStocks() {
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetHighYieldStocks");
   }
 }

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { StrategyEnum } from 'src/app/@Enum/StrategyEnum';
 import { StockBaseModel } from 'src/app/@Model/stockBaseModel';
 import { GetStockService } from 'src/app/@Service/get-stock.service';
@@ -9,44 +9,50 @@ import { GetStockService } from 'src/app/@Service/get-stock.service';
   styleUrls: ['./strategy.component.css']
 })
 export class StrategyComponent {
-  constructor(private getStockService: GetStockService){}
-  getBullishPullbackStocks(){
+  constructor(private getStockService: GetStockService) { }
+  getBullishPullbackStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getBullishPullbackStocks().subscribe(res=>{
+    this.getStockService.getBullishPullbackStocks().subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
-  getJumpEmptyStocks(){
+  getJumpEmptyStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getJumpEmptyStocks().subscribe(res=>{
+    this.getStockService.getJumpEmptyStocks().subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
-  getOrganizedStocks(){
+  getOrganizedStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getOrganizedStocks().subscribe(res=>{
+    this.getStockService.getOrganizedStocks().subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
-  getEpsIncreasingStocks(){
+  getSandwichStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getEpsIncreasingStocks().subscribe(res=>{
+    this.getStockService.getSandwichStocks().subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
-  getHighYieldStocks(){
+  getEpsIncreasingStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getHighYieldStocks().subscribe(res=>{
+    this.getStockService.getEpsIncreasingStocks().subscribe(res => {
+      this.statusAfterGetResult(res);
+    })
+  }
+  getHighYieldStocks() {
+    this.statusBeforeGetResult();
+    this.getStockService.getHighYieldStocks().subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
 
-  statusBeforeGetResult(){
+  statusBeforeGetResult() {
     this.getStockService.strategyMatchedStocks.next(null);
     this.getStockService.isResultLoading.next(true);
   }
 
-  statusAfterGetResult(res: StockBaseModel){
+  statusAfterGetResult(res: StockBaseModel) {
     this.getStockService.isResultLoading.next(false);
     this.getStockService.strategyMatchedStocks.next(res);
   }
