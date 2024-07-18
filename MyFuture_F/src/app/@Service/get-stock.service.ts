@@ -13,17 +13,17 @@ export class GetStockService {
   selectedStock = new Subject<string>();
   strategyMatchedStocks = new Subject<StockBaseModel | null>();
   isResultLoading = new Subject<boolean>();
-  getJumpEmptyStocks() {
-    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks");
+  getJumpEmptyStocks(selectedDate: string) {
+    return this.http.get<StockBaseModel>(`https://intothefuture.azurewebsites.net/api/GetStock/GetJumpEmptyStocks?selectedDate=${selectedDate}`);
   }
-  getBullishPullbackStocks() {
-    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks")
+  getBullishPullbackStocks(selectedDate: string) {
+    return this.http.get<StockBaseModel>(`https://intothefuture.azurewebsites.net/api/GetStock/GetBullishPullbackStocks?selectedDate=${selectedDate}`)
   }
-  getOrganizedStocks() {
-    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetOrganizedStocks")
+  getOrganizedStocks(selectedDate: string) {
+    return this.http.get<StockBaseModel>(`https://intothefuture.azurewebsites.net/api/GetStock/GetOrganizedStocks?selectedDate=${selectedDate}`)
   }
-  getSandwichStocks() {
-    return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetSandwichStocks")
+  getSandwichStocks(selectedDate: string) {
+    return this.http.get<StockBaseModel>(`https://intothefuture.azurewebsites.net/api/GetStock/GetSandwichStocks?selectedDate=${selectedDate}`)
   }
   getEpsIncreasingStocks() {
     return this.http.get<StockBaseModel>("https://intothefuture.azurewebsites.net/api/GetStock/GetFinanceIncreasingStocks")

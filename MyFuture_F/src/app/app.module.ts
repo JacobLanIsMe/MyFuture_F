@@ -10,6 +10,7 @@ import { HeaderComponent } from './index/header/header.component';
 import { DetailComponent } from './index/detail/detail.component';
 import { LoadingSpinnerComponent } from './share/loading-spinner/loading-spinner.component';
 import { DisclaimerComponent } from './index/disclaimer/disclaimer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DisclaimerComponent } from './index/disclaimer/disclaimer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

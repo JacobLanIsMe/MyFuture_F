@@ -17,7 +17,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.isResultLoadingSubscription.unsubscribe();
   }
   ngOnInit(): void {
-    this.getStockService.getBullishPullbackStocks().subscribe(res=>{
+    this.getStockService.getBullishPullbackStocks(new Date().toISOString().split('T')[0]).subscribe(res=>{
       this.isLoading = false;
       this.strategyMatchedStocks = res;
     });

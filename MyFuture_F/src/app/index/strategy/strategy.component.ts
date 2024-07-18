@@ -9,28 +9,31 @@ import { GetStockService } from 'src/app/@Service/get-stock.service';
   styleUrls: ['./strategy.component.css']
 })
 export class StrategyComponent {
-  constructor(private getStockService: GetStockService) { }
+  constructor(private getStockService: GetStockService) {
+    this.selectedDate = new Date().toISOString().split('T')[0];
+  }
+  selectedDate: string;
   getBullishPullbackStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getBullishPullbackStocks().subscribe(res => {
+    this.getStockService.getBullishPullbackStocks(this.selectedDate).subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
   getJumpEmptyStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getJumpEmptyStocks().subscribe(res => {
+    this.getStockService.getJumpEmptyStocks(this.selectedDate).subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
   getOrganizedStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getOrganizedStocks().subscribe(res => {
+    this.getStockService.getOrganizedStocks(this.selectedDate).subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
   getSandwichStocks() {
     this.statusBeforeGetResult();
-    this.getStockService.getSandwichStocks().subscribe(res => {
+    this.getStockService.getSandwichStocks(this.selectedDate).subscribe(res => {
       this.statusAfterGetResult(res);
     })
   }
