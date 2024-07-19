@@ -16,6 +16,7 @@ export class StrategyComponent {
   }
   selectedDate: string;
   selectedStrategy: TechStrategyEnum;
+
   dateChanging() {
     switch (this.selectedStrategy) {
       case TechStrategyEnum.BullishPullback:
